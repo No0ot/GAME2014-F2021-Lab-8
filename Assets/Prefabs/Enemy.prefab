@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383857781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.32, y: -0.12, z: 0}
+  m_LocalPosition: {x: -1.088, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3347542983166984662}
@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 3347542983166984660}
   - component: {fileID: 6433848931264923946}
   - component: {fileID: 2422414514851562760}
+  - component: {fileID: 7153345138272893488}
+  - component: {fileID: 133598911029791035}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -251,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c51f57bdaef4a43b412a3797946e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLOS: {fileID: 133598911029791035}
   runForce: 10
   lookAheadPoint: {fileID: 717407477}
   lookInFrontPoint: {fileID: 1383857782}
@@ -261,3 +264,60 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isGroundAhead: 0
+  animationController: {fileID: 0}
+--- !u!60 &7153345138272893488
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347542983166984659}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.25, y: 1.75}
+    newSize: {x: 2.25, y: 1.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.2, y: 0}
+      - {x: -7, y: 2}
+      - {x: -7, y: 0}
+--- !u!114 &133598911029791035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347542983166984659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f290cd6078aae049bbc1cc688e55ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidesWith: {fileID: 0}
+  contactFilter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 448
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  colliderList: []
