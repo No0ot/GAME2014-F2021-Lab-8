@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414566349461627115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundOrigin
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1414566349870552823}
   - component: {fileID: 1414566349870552822}
   - component: {fileID: 1414566349870552818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -186,6 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff54edef48501b4fa36cd32af07423c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
+  sensitivity: 0.5
   horizontalForce: 10
   verticalForce: 40
   isGrounded: 0

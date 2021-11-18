@@ -6,6 +6,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [Header("Touch Input")]
     public Joystick joystick;
+    [Range(0.01f, 1.0f)]
+    public float sensitivity;
 
     [Header("Movement")] 
     public float horizontalForce;
@@ -39,14 +41,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal") + joystick.Horizontal;
+        float x = (Input.GetAxisRaw("Horizontal") + joystick.Horizontal) * sensitivity;
 
         
         if (isGrounded)
         {
             // Keyboard Input
-            float y = Input.GetAxisRaw("Vertical") + joystick.Vertical;
-            float jump = Input.GetAxisRaw("Jump");
+            float y = (Input.GetAxisRaw("Vertical") + joystick.Vertical) * sensitivity;
+            float jump = Input.GetAxisRaw("Jump") + ((UIManager.jumpButtonDown)? 1.0f : 0.0f);
 
             // Check for Flip
 
@@ -61,15 +63,6 @@ public class PlayerBehaviour : MonoBehaviour
                 animatorController.SetInteger("AnimationState", (int)PlayerAnimationState.IDLE); // IDLE State
                 state = PlayerAnimationState.IDLE;
             }
-            
-            //// Touch Input
-            //Vector2 worldTouch = new Vector2();
-            //foreach (var touch in Input.touches)
-            //{
-            //    worldTouch = Camera.main.ScreenToWorldPoint(touch.position);
-            //}
-
-
 
             float horizontalMoveForce = x * horizontalForce;
             float jumpMoveForce = jump * verticalForce; 
